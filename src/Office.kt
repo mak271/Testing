@@ -1,44 +1,28 @@
-import Interfaces.Employers
-import Interfaces.Observer
-import Interfaces.Subject
-import Interfaces.Works
 
-class Office(var cabinets: ArrayList<Observer> = ArrayList(), var employers: ArrayList<Works> = ArrayList()): Subject, Employers {
+class Office(var cabinets: ArrayList<Cabinet> = ArrayList(), var employers: ArrayList<Employer> = ArrayList()) {
 
-    private var number: Int = 0
-
-    override fun addCab(o: Observer) {
-        cabinets.add(o)
+    fun addCab(cab: Cabinet) {
+        cabinets.add(cab)
     }
 
-    override fun addEmp(em: Works) {
+    fun addEmp(em: Employer) {
         employers.add(em)
     }
 
-    override fun notifyCabinets() {
+    fun showAllCabinets() { // пробегаем по всем кабинетам и выводим все кабинеты с их устройствами
         for (i in 0 until cabinets.size)
         {
-            val cab: Observer = cabinets[i]
-            number++
-            cab.update(number)
+            val cab: Display = cabinets[i]
+            cab.displayDev()
         }
     }
 
-    fun showAllCabinets() {
-        notifyCabinets()
-    }
-
-    override fun notifyEmployers() {
-        for (i in 0 until employers.size)
+    fun showAllEmployers() {  // пробегаем по всем кабинетам и выводим всех сотрудников с их кабинетами
+        for (i in 0 until cabinets.size)
         {
-            val emp: Works = employers[i]
-            emp.upd("", "")
+            val emp: Display = cabinets[i]
+            emp.displayEmp()
         }
     }
-
-    fun showAllEmployers() {
-        notifyEmployers()
-    }
-
 
 }

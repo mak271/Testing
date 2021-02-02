@@ -1,16 +1,7 @@
 
-import Cabinets.Cab
-import Cabinets.Cabinet1
-import Cabinets.Cabinet2
-import Cabinets.Cabinet3
 import Devices.Combine
 import Devices.Printer
 import Devices.Scanner
-import Employers.Human
-import Employers.Human1
-import Employers.Human2
-import Employers.Human3
-
 
 fun main() {
 
@@ -25,15 +16,19 @@ fun main() {
     println("")
 
     val office = Office()
-    val cabinet1: Cab = Cabinet1(office)
-    val cabinet2: Cab = Cabinet2(office)
-    val cabinet3: Cab = Cabinet3(office)
+    val cabinet1 = Cabinet(1)
+    val cabinet2 = Cabinet(2)
+    val cabinet3 = Cabinet(4)
 
-    val h1: Human = Human1(office)
-    val h2: Human = Human2(office)
-    val h3: Human = Human3(office)
+    val h1 = Employer("Ivan", "Petrov")
+    val h2 = Employer("Alex", "Veselov")
+    val h3 = Employer("Maxim", "Vlasov")
 
-    office.addCab(cabinet1)  // добавление в офис кабинета под номером 1
+    office.addEmp(h1) // добавление работника в офис
+    office.addEmp(h2)
+    office.addEmp(h3)
+
+    office.addCab(cabinet1) // добавление в офис кабинета под номером 1
     cabinet1.addDevice(comb)  // добавление в кабинет комбайна
 
     office.addCab(cabinet2)
@@ -42,13 +37,12 @@ fun main() {
     office.addCab(cabinet3)
     cabinet3.addDevice(printer)
 
-    h1.addInCab(cabinet1) // закрепление сотрудника за 1-ым кабинетом
-    h1.addInCab(cabinet3)
-    h1.addInCab(cabinet2)
-    h2.addInCab(cabinet2)
-    h2.addInCab(cabinet3)
-    h3.addInCab(cabinet1)
-    h3.addInCab(cabinet2)
+    cabinet1.addEmployer(h1) // добавление работника в кабинет
+    cabinet1.addEmployer(h2)
+    cabinet2.addEmployer(h1)
+    cabinet2.addEmployer(h3)
+    cabinet3.addEmployer(h2)
+    cabinet3.addEmployer(h3)
 
     office.showAllCabinets() // вывод всех кабинетов с их устройствами
     println("")
