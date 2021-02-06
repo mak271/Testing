@@ -1,12 +1,8 @@
 package Devices
 
-import Devices.Dev
+class Combine(private var id: Int): Dev() { // идёт наследование от абстрактного класса-родителя
 
-
-
-class Combine(var id: Int): Dev() {
-
-    override fun toString(): String {
+    override fun toString(): String { // используется полиморфизм, так как задействуются разные реализации данного метода
         return "Combine №$id"
     }
 

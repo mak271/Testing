@@ -1,8 +1,6 @@
 package Devices
 
-import Devices.Dev
-
-class Printer(var id: Int): Dev() {
+class Printer(private var id: Int): Dev() {
 
     override fun toString(): String {
         return "Printer №$id"

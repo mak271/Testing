@@ -5,15 +5,9 @@ import Devices.Scanner
 
 fun main() {
 
-    val comb = Combine(12)
-    comb.laser()
-    comb.copy()
+    val combine = Combine(12)
     val scanner = Scanner(475)
-    scanner.scan()
     val printer = Printer(458)
-    printer.spray()
-
-    println("")
 
     val office = Office()
     val cabinet1 = Cabinet(1)
@@ -29,7 +23,7 @@ fun main() {
     office.addEmp(h3)
 
     office.addCab(cabinet1) // добавление в офис кабинета под номером 1
-    cabinet1.addDevice(comb)  // добавление в кабинет комбайна
+    cabinet1.addDevice(combine)  // добавление в кабинет комбайна
 
     office.addCab(cabinet2)
     cabinet2.addDevice(scanner)

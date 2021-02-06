@@ -1,5 +1,5 @@
 
-class Office(var cabinets: ArrayList<Cabinet> = ArrayList(), var employers: ArrayList<Employer> = ArrayList()) {
+class Office(private var cabinets: ArrayList<Cabinet> = ArrayList(), private var employers: ArrayList<Employer> = ArrayList()) {
 
     fun addCab(cab: Cabinet) {
         cabinets.add(cab)
@@ -9,7 +9,7 @@ class Office(var cabinets: ArrayList<Cabinet> = ArrayList(), var employers: Arra
         employers.add(em)
     }
 
-    fun showAllCabinets() { // пробегаем по всем кабинетам и выводим все кабинеты с их устройствами
+    fun showAllCabinets() { // пробегаем по всем кабинетам и выводим все кабинеты с их устройствами, благодаря интерфейсу Display
         for (i in 0 until cabinets.size)
         {
             val cab: Display = cabinets[i]

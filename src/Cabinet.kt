@@ -1,12 +1,12 @@
 import Devices.Dev
 
-class Cabinet(var number: Int) : Display {
-
-    private var device: String = ""
+class Cabinet(private var number: Int) : Display { // используется модификатор доступа private(инкапсуляция),
+                                                   // чтобы пользователь не мог самолично менять номер кабинета
+    private lateinit var device: Dev
     private var employers = ArrayList<Employer>()
 
     fun addDevice(dev: Dev) {
-        device = dev.toString()
+        device = dev
     }
 
     override fun displayDev() {
@@ -14,9 +14,8 @@ class Cabinet(var number: Int) : Display {
     }
 
 
-    fun addEmployer(employer: Employer)
-    {
-        employers.add(employer).toString()
+    fun addEmployer(employer: Employer) {
+        employers.add(employer)
     }
 
     override fun displayEmp() {
